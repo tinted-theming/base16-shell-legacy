@@ -61,17 +61,17 @@ completion.
 
 ### Base16-Vim Users
 
-This section is for [base16-vim][2] users. base16-shell will update (or
-create) the  `~/.vimrc_background` file and set the colorscheme. You
-need to source this file in your `.vimrc`. You can do this by adding the
-following to your `.vimrc`:
+The `BASE16_THEME` environment variable will set to your current
+colorscheme, You can do this by adding the following to your `.vimrc`:
 
-```shell
-if filereadable(expand("~/.vimrc_background"))
+```vim
+if exists('$BASE16_THEME')
+    \ && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
   let base16colorspace=256
-  source ~/.vimrc_background
+  colorscheme base16-$BASE16_THEME
 endif
 ```
+
 Remove the base16colorspace line if it is not needed.
 
 ### Base16-Tmux Users
