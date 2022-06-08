@@ -53,10 +53,12 @@ Open a new shell and type `base16` followed by a tab to perform tab completion.
 
 the profile_helper will update a ~/.vimrc_background file that will have your current the colorscheme, you just need to source this file in your vimrc: i.e. (remove the base16colorspace line if not needed)
 
-    if filereadable(expand("~/.vimrc_background"))
-      let base16colorspace=256
-      source ~/.vimrc_background
-    endif
+```shell
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+```
 
 ## Troubleshooting
 
@@ -73,20 +75,16 @@ https://github.com/base16-project/base16-shell/issues/150
 
 ## Building
 
-Dependencies:
+### Dependencies
 
-- Python, at least version 3.5
-- The `pybase16` command from [base16-builder-python](https://github.com/InspectorMustache/base16-builder-python)
-- The `make` command
+- `Python` >= 3.5
+- `pip`
+- `pybase16` from [base16-builder-python](https://github.com/InspectorMustache/base16-builder-python) (`pip3 install pybase16-builder`)
+- `make` (`apt install build-essential` on Debian based distros, `brew install make` on [Homebrew](https://formulae.brew.sh/))
 
-```
-# Install dependencies (you probably already have pip/pip3 and make)
-apt install build-essential # for make
-pip3 install pybase16-builder
+### Installation
 
-# Build the packages
-make
-```
+Run `make` at base16-shell project root.
 
 ### Keeping your themes up to date
 
