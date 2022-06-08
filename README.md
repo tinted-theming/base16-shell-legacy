@@ -5,7 +5,7 @@ These scripts were built with [base16-builder-python](https://github.com/Inspect
 
 A shell script to change your shell's default ANSI colors but most importantly, colors 17 to 21 of your shell's 256 colorspace (if supported by your terminal). This script makes it possible to honor the original bright colors of your shell (e.g. bright green is still green and so on) while providing additional base16 colors to applications such as Vim.
 
-![Base16 Shell](https://raw.github.com/base16-project/base16-shell/main/base16-shell.png)
+![Base16 Shell](/screenshots/base16-shell.png)
 
 ## Use Cases
 
@@ -64,7 +64,7 @@ endif
 
 Run the included **colortest** script and check that your colour assignments appear correct. If your teminal does not support the setting of colours in within the 256 colorspace (e.g. Apple Terminal), colours 17 to 21 will appear blue.
 
-![setting 256 colourspace not supported](https://raw.github.com/base16-project/base16-shell/main/setting-256-colourspace-not-supported.png)
+![setting 256 colourspace not supported](/screenshots/setting-256-colourspace-not-supported.png)
 
 If **colortest** is run without any arguments e.g. `./colortest` the hex values shown will correspond to the default scheme. If you'd like to see the hex values for a particular scheme pass the file name of the theme as the arguement e.g. `./colortest base16-ocean.sh`.
 
