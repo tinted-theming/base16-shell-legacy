@@ -51,7 +51,7 @@ Open a new shell and type `base16` followed by a tab to perform tab completion.
 
 ### Base16-Vim Users
 
-This section is for [base16-vim](https://github.com/base16-project/base16-vim) users. The `profile_helper` will update a `~/.vimrc_background` file that will have your current colorscheme, you just need to source this file in your `.vimrc`: i.e. 
+This section is for [base16-vim](https://github.com/base16-project/base16-vim) users. base16-shell will update (or create) the  `~/.vimrc_background` file and set the colorscheme. You need to source this file in your `.vimrc`. You can do this by adding the following to your `.vimrc`:
 
 ```shell
 if filereadable(expand("~/.vimrc_background"))
@@ -59,11 +59,11 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 ```
-Remove the base16colorspace line if not needed.
+Remove the base16colorspace line if it is not needed.
 
 ### Base16-Tmux Users
 
-This section is for [base16-tmux](https://github.com/mattdavis90/base16-tmux) users. The `profile_helper` will update a `~/.tmux.base16.conf` file that will have your current colorscheme, you just need to source this file in your `.tmux.conf`: i.e.
+This section is for [base16-tmux](https://github.com/mattdavis90/base16-tmux) users. base16-shell will update (or create) the `~/.tmux.base16.conf` file and set the colorscheme. You need to source this file in your `.tmux.conf`. You can do this by adding the following to your `.tmux.conf`:
 
 ```
 source-file ~/.tmux.base16.conf
