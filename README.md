@@ -58,9 +58,12 @@ end
 
 ### Base16-Vim Users
 
+#### Vim
+
 The `BASE16_THEME` environment variable will set to your current
-colorscheme. You can set the [base16-vim][2] colorscheme by adding the
-following to your `.vimrc`:
+colorscheme. You can set the [base16-vim][2] colorscheme to the
+`BASE16_THEME` environment variable by adding the following to your
+`.vimrc`:
 
 ```vim
 if exists('$BASE16_THEME')
@@ -70,7 +73,22 @@ if exists('$BASE16_THEME')
 endif
 ```
 
-Remove the base16colorspace line if it is not needed.
+Remove the `base16colorspace` line if it is not needed.
+
+#### Neovim
+
+If you have a lua neovim config, add the following to your `init.lua`:
+
+```lua
+local cmd = vim.cmd
+local g = vim.g
+
+local base16_project_theme = os.getenv('BASE16_THEME')
+if base16_project_theme and g.colors_name ~= 'base16-'..base16_project_theme then
+  cmd('let base16colorspace=256')
+  cmd('colorscheme base16-'..base16_project_theme)
+end
+```
 
 ### Base16-Tmux Users
 
