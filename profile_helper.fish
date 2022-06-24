@@ -11,18 +11,22 @@
 # TODO: maybe port to $HOME/.config/fish/functions ?
 
 
-set SCRIPT_DIR (realpath (dirname (status -f)))
+if test -z $BASE16_SHELL
+  set -g BASE16_SHELL (cd (dirname (status -f)); and pwd)
+end
 
 # load currently active theme...
 if test -e ~/.base16_theme
-  set -l SCRIPT_NAME (basename (realpath ~/.base16_theme) .sh)
-  set -gx BASE16_THEME (string match 'base16-*' $SCRIPT_NAME  | string sub -s (string length 'base16-*'))
-  eval sh '"'(realpath ~/.base16_theme)'"'
+  eval sh ~/.base16_theme
 end
 
+if test -n "$BASE16_DEFAULT_THEME"; and not test -e ~/.base16_theme
+  ln -s "$BASE16_SHELL/scripts/base16-$BASE16_DEFAULT_THEME.sh" \
+    ~/.base16_theme
+end
 
 # set aliases, like base16_*...
-for SCRIPT in $SCRIPT_DIR/scripts/*.sh
+for SCRIPT in $BASE16_SHELL/scripts/*.sh
   set THEME (basename $SCRIPT .sh) # eg: base16-ocean
   function $THEME -V SCRIPT -V THEME
     set partial_theme_name (string replace -a 'base16-' '' $THEME) # eg: ocean
@@ -39,3 +43,5 @@ for SCRIPT in $SCRIPT_DIR/scripts/*.sh
     end
   end
 end
+
+alias reset "command reset && [ -f ~/.base16_theme ] && sh ~/.base16_theme"
