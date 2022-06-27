@@ -33,10 +33,10 @@ Add following lines to `.bashrc` or `.zshrc`:
 
 ```bash
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell"
+BASE16_SHELL_PATH="$HOME/.config/base16-shell"
 [ -n "$PS1" ] && \
-  [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-    source "$BASE16_SHELL/profile_helper.sh"
+  [ -s "$BASE16_SHELL_PATH/profile_helper.sh" ] && \
+    source "$BASE16_SHELL_PATH/profile_helper.sh"
 ```
 
 ### Oh my zsh
@@ -58,8 +58,8 @@ Add following lines to `$HOME/.config/fish/config.fish`:
 ```fish
 # Base16 Shell
 if status --is-interactive
-  set BASE16_SHELL "$HOME/.config/base16-shell"
-  source "$BASE16_SHELL/profile_helper.fish"
+  set BASE16_SHELL_PATH "$HOME/.config/base16-shell"
+  source "$BASE16_SHELL_PATH/profile_helper.fish"
 end
 ```
 
@@ -103,12 +103,12 @@ end
 ### Base16-Tmux Users
 
 This section is for [base16-tmux][3] users. base16-shell will update (or
-create) the `$HOME/.tmux.base16.conf` file and set the colorscheme. You
-need to source this file in your `.tmux.conf`. You can do this by adding
-the following to your `.tmux.conf`:
+create) the `$HOME/.config/base16-project/tmux.base16.conf` file and
+set the colorscheme. You need to source this file in your `.tmux.conf`.
+You can do this by adding the following to your `.tmux.conf`:
 
 ```
-source-file $HOME/.tmux.base16.conf
+source-file $HOME/.config/base16-project/tmux.base16.conf
 ```
 
 Make sure to reload your `.tmux.conf` file after the theme has been
