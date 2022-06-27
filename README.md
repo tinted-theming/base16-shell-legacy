@@ -67,7 +67,8 @@ colorscheme. You can set the [base16-vim][2] colorscheme to the
 
 ```vim
 if exists('$BASE16_THEME')
-    \ && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
+    \ && (!exists('g:colors_name') 
+    \ || g:colors_name != 'base16-$BASE16_THEME')
   let base16colorspace=256
   colorscheme base16-$BASE16_THEME
 endif
@@ -122,7 +123,8 @@ For example: `$BASE16_THEME_DEFAULT="solarized-light"`
 
 ## Usage
 
-Open a new shell and type `base16` followed by a tab to perform tab completion.
+Open a new shell and type `base16` followed by a tab to perform tab
+completion.
 
 ## Troubleshooting
 
